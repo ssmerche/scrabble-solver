@@ -9,17 +9,15 @@
 (defn score [word] (reduce #(+ %1 (points-per-letter %2)) 0  word))
 
 (defn match?
-  [letter-freqs word-freqs]
-  (let [letters (-> letter-freqs keys set) 
-        word-letters (-> word-freqs keys set)]
-    (if (sets/superset? letters word-letters)
+  [letters word]
+  (let [letter-freqs (frequencies letters) 
+        word-freqs (frequencies word)]
+    (if (sets/superset? (set letters) (set word))
       (every? #(>= (letter-freqs (key %)) (word-freqs (key %))) word-freqs)
       false)))
 
 (defn solve-with
   [words letters]
   (let [letters (string/upper-case letters)
-        letter-freqs (frequencies letters)
         words (set (map string/upper-case words))]
-    (->> words (map string/upper-case) (filter #(match? letter-freqs (frequencies %))) 
-      (sort-by score >))))
+    (->> words (filter #(match? letters %)) (sort-by score >))))
