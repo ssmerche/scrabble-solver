@@ -5,7 +5,9 @@ scrabble for some letters.
 
 ## Usage
 
+````
 lein run <letters> [words file (default is /usr/share/dict/words)]
+````
 
 ## License
 
