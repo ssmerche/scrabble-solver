@@ -5,8 +5,8 @@
                 "aardwolf" "aaron" "aaronic" "aaronical" "aaronite" 
                 "aaronitic" "aaru" "ab" "aba" "ababdeh" "ababua" "abac"])
 
-(fact (scrabble-solver/solve-with words "aa") => (just #{"a" "aa"}))
-(fact (scrabble-solver/solve-with words "ab") => (just #{"a" "ab"}))
-(fact (scrabble-solver/solve-with words "aaronical") => (just #{"a" "aa" "aal" "aani" "aaron" "aaronic" "aaronical"}))
-(fact (scrabble-solver/solve-with words "sims") => (just #{"sims" "miss"}))
-(fact (scrabble-solver/solve-with words "aalm") => (just #{"a" "aa" "aal"}))
+(fact (scrabble-solver/solve-with words "aa") => (just #{"A" "AA"}))
+(fact (scrabble-solver/solve-with words "ab") => (just #{"A" "AB"}))
+(fact (scrabble-solver/solve-with words "aaronical") => (just #{"A" "AA" "AAL" "AANI" "AARON" "AARONIC" "AARONICAL"}))
+(fact (scrabble-solver/solve-with words "sims") => (just #{"SIMS" "MISS"}))
+(fact (scrabble-solver/solve-with words "aalm") => (just #{"A" "AA" "AAL"}))
