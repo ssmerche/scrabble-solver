@@ -1,15 +1,14 @@
 # scrabble-solver
 
-I'm an app. Or maybe I'm a library? I haven't decided yet. 
-
-The choice is up to you!
+Small practice clojure app that gives all possible words and their points in
+scrabble for some letters.
 
 ## Usage
 
-FIXME
+lein run <letters> [words file (default is /usr/share/dict/words)]
 
 ## License
 
-Copyright © 2012 FIXME
+Copyright © 2012 Scott Smerchek
 
 Distributed under the Eclipse Public License, the same as Clojure.
