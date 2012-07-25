@@ -8,17 +8,18 @@
 
 (defn score [word] (reduce #(+ %1 (points-per-letter %2)) 0  word))
 
-(defn supermultiset?
-  [mset1 mset2]
-  (let [letters1 (-> mset1 keys set) letters2 (-> mset2 keys set)]
-    (if (sets/superset? letters1 letters2)
-      (every? #(>= (mset1 (key %)) (mset2 (key %))) mset2)
+(defn match?
+  [letter-freqs word-freqs]
+  (let [letters (-> letter-freqs keys set) 
+        word-letters (-> word-freqs keys set)]
+    (if (sets/superset? letters word-letters)
+      (every? #(>= (letter-freqs (key %)) (word-freqs (key %))) word-freqs)
       false)))
 
 (defn solve-with
   [words letters]
   (let [letters (string/upper-case letters)
-        freqs (frequencies letters)
+        letter-freqs (frequencies letters)
         words (set (map string/upper-case words))]
-    (->> words (map string/upper-case) (filter #(supermultiset? freqs (frequencies %))) 
+    (->> words (map string/upper-case) (filter #(match? letter-freqs (frequencies %))) 
       (sort-by score >))))
