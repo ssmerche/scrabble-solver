@@ -1,5 +1,6 @@
 (ns scrabble-solver.main 
-  (:require [scrabble-solver.core :as solver] [clojure.string :as string]
+  (:require [scrabble-solver.core :as solver] 
+            [clojure.string :as string]
             [clojure.java.io :as io]))
 
 (defn massage-words [words num-letters] 
